@@ -13,7 +13,9 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
-          cache: true
+          # There are no dependencies to cache: the module requires nothing,
+          # so there is no go.sum for the cache key to be built from.
+          cache: false
 
       - name: Verify formatting
         run: |
